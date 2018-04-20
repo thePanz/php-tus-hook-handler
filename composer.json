@@ -1,0 +1,19 @@
+{
+  "name": "pnz/tus-handler",
+  "license": "GPL-3.0",
+  "require": {
+    "php": "^7.0",
+    "symfony/event-dispatcher": "^3.0 || ^4.0",
+    "symfony/http-foundation": "^3.0 || ^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pnz\\TusHookHandler\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pnz\\TusHookHandler\\Tests\\": "tests/"
+    }
+  }
+}
