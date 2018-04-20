@@ -1,5 +1,5 @@
 {
-  "name": "pnz/tus-handler",
+  "name": "pnz/tus-hook-handler",
   "license": "GPL-3.0",
   "require": {
     "php": "^7.0",
