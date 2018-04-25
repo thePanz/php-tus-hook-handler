@@ -19,7 +19,7 @@ class HookData
     public const HOOK_POST_FINISH = 'post-finish';
 
     // https://github.com/tus/tusd/blob/master/docs/hooks.md#post-receive
-    const HOOK_POST_RECEIVE = 'post-receive';
+    public const HOOK_POST_RECEIVE = 'post-receive';
 
     // https://github.com/tus/tusd/blob/master/docs/hooks.md#post-terminate
     public const HOOK_POST_TERMINATE = 'post-terminate';

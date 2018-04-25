@@ -49,17 +49,21 @@ class TusHookHandler
      */
     public function buildHookData(Request $request): HookData
     {
-        $hookName = (string) $request->headers->get(self::HOOK_HEADER);
-        if (!$hookName) {
-            throw new InvalidTusRequestException('Invalid hook invocation, name is missing');
+        if (Request::METHOD_POST !== $request->getMethod()) {
+            throw new InvalidTusRequestException(sprintf('Invalid hook invocation, expected POST method, got %s', $request->getMethod()));
         }
 
-        if ('json' !== $request->getContentType()) {
-            throw new InvalidTusRequestException('Invalid hook content type');
+        $hookName = (string) $request->headers->get(self::HOOK_HEADER);
+        if (!$hookName) {
+            throw new InvalidTusRequestException('Invalid hook invocation, hook name is missing');
         }
 
         if (!in_array($hookName, self::HOOKS, true)) {
             throw new InvalidTusRequestException(sprintf('Invalid hook name: %s given', $hookName));
+        }
+
+        if ('json' !== $request->getContentType()) {
+            throw new InvalidTusRequestException(sprintf('Invalid hook content type, got %s', $request->getContentType()));
         }
 
         try {
